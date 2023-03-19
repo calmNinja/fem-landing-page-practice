@@ -266,6 +266,54 @@ p[data-width = "wide"] {
 }
 */
 
+/* cta */
+.cta {
+  background-image: url("images/bg-simplify-section-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  text-align: center;
+}
+
+@media (max-width: 50em) {
+  .cta {
+    background-image: url("images/bg-simplify-section-mobile.svg");
+    background-position: left;
+  }
+}
+
+/* cta */
+.cta {
+  background-image: url("images/bg-simplify-section-desktop.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+@media (max-width: 50em) {
+  .cta {
+    background-image: url("images/bg-simplify-section-mobile.svg");
+    background-position: left;
+  }
+}
+
+
+/*
+.cta {
+  position: relative;
+  isolation: isolate;
+}
+.cta::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image: url("images/bg-tablet-pattern.svg"),
+    url("images/bg-tablet-pattern.svg");
+  background-position: -15rem -5rem, 80rem -42rem;
+  background-repeat: no-repeat;
+  opacity: 0.1; 
+}
+*/
+
 /* Utility classes */
 /* https://a11y-guidelines.orange.com/en/articles/accessible-hiding/ */
 .visually-hidden {
@@ -289,15 +337,10 @@ p[data-width = "wide"] {
   margin-inline: auto;
 }
 
-:where(.flow :not(:first-child)) {
-  margin-top: var(--flow-spacer, 3em); 
-}
-
 .even-columns {
   display: grid;
   gap: 1rem;
 }
-
 
 /* em is the only unit consistent across all browsers & OS when zooming in & out when media queries are used*/
 @media(min-width: 50em) {
@@ -306,6 +349,28 @@ p[data-width = "wide"] {
     grid-auto-columns: 1fr;
   }
 }
+
+.vertical-align-center {
+  align-items: center;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+@media (min-width: 50em) {
+  .justify-self-end-md {
+    justify-self: end;
+  }
+}
+:where(.flow :not(:first-child)) {
+  margin-top: var(--flow-spacer, 3em); 
+}
+
+
+
+
+
 
 .text-primary-400 {
   color: var(--clr-primary-400);
