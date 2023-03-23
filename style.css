@@ -45,7 +45,7 @@
 
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   :root {
     --fs-body: var(--fs-500);
     --fs-primary-heading: var(--fs-900);
@@ -82,7 +82,8 @@ html:focus-within {
 
 html,
 body {
-  height: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
 
 /* Set core body defaults */
@@ -213,7 +214,12 @@ p[data-width = "wide"] {
   color: var(--clr-accent-400);
 }
 
-@media (max-width: 50em){
+@media (max-width: 47em){
+
+  .primary-header[data-overlay] {
+    position: relative;
+    z-index: 999;
+  }
 
   .primary-navigation {
     display: none;
@@ -221,7 +227,7 @@ p[data-width = "wide"] {
     padding: var(--size-700);
     inset: 7rem var(--size-400) auto;
     max-width: 25rem;
-    margin-left: auto;
+    margin-inline: auto;
     background:var(--clr-neutral-100);
     border-radius: var(--size-100);
     box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
@@ -248,6 +254,8 @@ p[data-width = "wide"] {
     display: block;
    
   }
+
+ 
   .mobile-nav-toggle {
     display: block;
     position: fixed;
@@ -257,11 +265,18 @@ p[data-width = "wide"] {
     background: transparent;
     border: 0;
     padding: 0.5em;
+    width: 1.65rem;
+    aspect-ratio: 1;
+    background-image: url('images/icon-hamburger.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
   
-  .mobile-nav-toggle .icon-close {
-    display: none;
+  .mobile-nav-toggle[aria-expanded = "true"] {
+    background-image: url('images/icon-close.svg');
   }
+ 
 }
 
 /*
@@ -279,7 +294,7 @@ p[data-width = "wide"] {
   text-align: center;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
   .cta {
     background-image: url("images/bg-simplify-section-mobile.svg");
     background-position: left;
@@ -302,7 +317,7 @@ p[data-width = "wide"] {
   fill: var(--clr-accent-400);
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   .social-list {
     gap: var(--size-300);
   }
@@ -318,7 +333,7 @@ p[data-width = "wide"] {
   background-position: bottom;
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
   .cta {
     background-image: url("images/bg-simplify-section-mobile.svg");
     background-position: left;
@@ -370,7 +385,7 @@ input:where([type="text"], [type="email"]) {
 
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   .primary-footer-wrapper {
     grid-template-areas: "logo-social nav form";
   }
@@ -383,7 +398,7 @@ input:where([type="text"], [type="email"]) {
   }
 }
 
-@media (max-width: 50em) {
+@media (max-width: 47em) {
   .primary-footer-wrapper > * {
     margin-inline: auto;
   }
@@ -482,7 +497,7 @@ input:where([type="text"], [type="email"]) {
 
 
 
-@media (max-width: 50em){
+@media (max-width: 47em){
   .numbered-items div::after {
 
     --bg : var(--clr-accent-100);
@@ -540,7 +555,7 @@ input:where([type="text"], [type="email"]) {
 
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   .slider > * {
     width: 37%;
   }
@@ -593,6 +608,65 @@ input:where([type="text"], [type="email"]) {
   background: var(--clr-accent-400);
 }
 
+/* hero image */
+
+@media (max-width: 47em) {
+  .hero__image{
+    /* position: relative; */
+    order: -1;
+  }
+}
+
+.hero__image::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: 0;
+  width: 87%;
+  max-height: 70vh;
+  max-height: 70dvh;
+  aspect-ratio: 1 / 1.2; 
+  background-image: url("images/bg-tablet-pattern.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  
+}
+
+@media (min-width: 47em) {
+  .hero__image::before {
+    width:45%;
+  }
+}
+
+/* sales points image */
+.sales-points-blog {
+  position: relative;
+}
+
+.sales-points-blog::before {
+  content: url('images/bg-tablet-pattern.svg');
+  zoom: 40%;
+  position: absolute;
+  z-index: -1;
+  left: 70%;
+  bottom: 120%;
+  width: 100px;
+
+}
+
+@media (min-width: 47em) {
+  .sales-points-blog::before {
+    content: url('images/bg-tablet-pattern.svg');
+    zoom: 90%;
+    z-index: -1;
+    left: -700px;
+    top: 42%;
+    width: 100px;
+  
+  }
+}
+
 /* Utility classes */
 /* https://a11y-guidelines.orange.com/en/articles/accessible-hiding/ */
 .visually-hidden {
@@ -622,7 +696,7 @@ input:where([type="text"], [type="email"]) {
 }
 
 /* em is the only unit consistent across all browsers & OS when zooming in & out when media queries are used*/
-@media(min-width: 50em) {
+@media(min-width: 47em) {
   .even-columns {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
@@ -637,7 +711,7 @@ input:where([type="text"], [type="email"]) {
   justify-self: end;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   .justify-self-end-md {
     justify-self: end;
   }
@@ -653,7 +727,7 @@ input:where([type="text"], [type="email"]) {
 .text-center p {
   margin-inline: auto;
 }
-@media (max-width: 50em) {
+@media (max-width: 47em) {
   .text-center-sm-only {
     text-align: center;
   }
@@ -737,11 +811,15 @@ input:where([type="text"], [type="email"]) {
   margin-block-end: var(--size-700);
 }
 
+.mx-auto {
+  margin-inline: auto;
+}
+
 .display-sm-none {
   display: none;
 }
 
-@media (min-width: 50em) {
+@media (min-width: 47em) {
   .display-md-inline-flex {
     display: inline-flex;
   }
